@@ -10,9 +10,11 @@ import 'package:flame_audio/bgm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:in_app_review/in_app_review.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -34,14 +36,18 @@ class _SettingPageState extends State<SettingPage> {
     super.initState();
   }
 
-  void openWebView(String url) => Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => CustomWebViewPage(url: url),
-        ),
-      );
+  void openWebView(String urls) async {
+    final url = Uri.parse(urls);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    }
+  }
 
-  void shareApp() {
-    Share.share('Install the application: {there will be a link here}');
+  void shareApp() async {
+    final InAppReview inAppReview = InAppReview.instance;
+    if (await inAppReview.isAvailable()) {
+      inAppReview.requestReview();
+    }
   }
 
   @override
@@ -116,7 +122,7 @@ class _SettingPageState extends State<SettingPage> {
                             ),
                             const SizedBox(height: 25),
                             AppButton(
-                              title: "share app".toUpperCase(),
+                              title: "Rate Us",
                               titleSize: 24,
                               onTap: () => shareApp(),
                             ),

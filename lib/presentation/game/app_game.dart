@@ -1,14 +1,10 @@
 import 'dart:async';
 import 'dart:ui';
-
-import 'package:a1/common/style/app_colors.dart';
-import 'package:a1/common/style/app_text_style.dart';
 import 'dart:math' as math;
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
-import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart' hide Draggable;
 
@@ -147,28 +143,6 @@ class Ball extends SpriteComponent
       velocity.x = -velocity.x;
       velocity.y = velocity.y;
     }
-    // // Left Side Collision
-    // if (collisionPoint.x == 0) {
-    //   velocity.x = -velocity.x;
-    //   velocity.y = velocity.y;
-    // }
-    // // Right Side Collision
-    // if (collisionPoint.x == game.size.x) {
-    //   velocity.x = -velocity.x;
-    //   velocity.y = velocity.y;
-    // }
-    // // Top Side Collision
-    // if (collisionPoint.y == 0) {
-    //   velocity.x = velocity.x;
-    //   velocity.y = -velocity.y;
-    // }
-    // // Bottom Side Collision
-    // if (collisionPoint.y == game.size.y) {
-    //   velocity.x = velocity.x;
-    //   velocity.y = -velocity.y;
-    //   print("LOST");
-    //   lose();
-    // }
   }
 
   void get _resetBall {
@@ -205,10 +179,13 @@ class Ball extends SpriteComponent
           velocity.y = -velocity.y;
           canBeat = false;
           addPoints(10);
-          // Future.delayed(const Duration(milliseconds: 1000), () {
-          //   velocity.y = -velocity.y;
-          //   canBeat = true;
-          // });
+          Future.delayed(
+            const Duration(milliseconds: 1000),
+            () {
+              velocity.y = -velocity.y;
+              velocity.x = -velocity.x;
+            },
+          );
         });
       }
     }
@@ -228,6 +205,7 @@ class Boot extends SpriteComponent
   late ShapeHitbox hitbox;
   bool rotate = false;
   bool rotateDown = false;
+  List<Vector2> positions = [];
 
   @override
   FutureOr<void> onLoad() {
@@ -238,6 +216,8 @@ class Boot extends SpriteComponent
     add(hitbox);
     return super.onLoad();
   }
+
+  List<int> xs = [0];
 
   @override
   void onDragUpdate(DragUpdateEvent event) {

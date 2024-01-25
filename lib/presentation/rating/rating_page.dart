@@ -123,8 +123,11 @@ class _RatingPageState extends State<RatingPage> {
                                                   style: AppTextStyle
                                                       .w400S20WhiteColor,
                                                 ),
-                                                const SizedBox(
-                                                  width: 20,
+                                                Image.asset(
+                                                  i % 2 == 0
+                                                      ? Pictures.top1
+                                                      : Pictures.top2,
+                                                  height: 60,
                                                 ),
                                                 Text(
                                                   leaders[i].name,
@@ -138,15 +141,6 @@ class _RatingPageState extends State<RatingPage> {
                                                 ),
                                               ],
                                             ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 50),
-                                          child: Image.asset(
-                                            i % 2 == 0
-                                                ? Pictures.top1
-                                                : Pictures.top2,
                                           ),
                                         ),
                                       ],

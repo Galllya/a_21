@@ -138,7 +138,7 @@ class _GamePageState extends State<GamePage> {
                                 ),
                                 const SizedBox(height: 10),
                                 AppButton(
-                                  title: "MENY",
+                                  title: "MENU",
                                   onTap: () {
                                     Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
@@ -153,14 +153,6 @@ class _GamePageState extends State<GamePage> {
                         ],
                       )
                     : GameWidget(
-                        backgroundBuilder: (context) => Container(
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                                image:
-                                    AssetImage("Insert your background here"),
-                                fit: BoxFit.cover),
-                          ),
-                        ),
                         game: AppGame(
                           addPoints: (score) {
                             context
@@ -191,113 +183,9 @@ class _GamePageState extends State<GamePage> {
               time: time,
               lose: youLose,
             ),
-            // Column(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     Column(
-            //       children: [
-            //         Align(
-            //           alignment: Alignment.centerLeft,
-            //           child: Padding(
-            //             padding: const EdgeInsets.only(left: 23, top: 48),
-            //             child: GestureDetector(
-            //               onTap: () => Navigator.of(context).pop(),
-            //               child: SizedBox(
-            //                 width: 64,
-            //                 height: 64,
-            //                 child: BlurContainer(
-            //                   content: SizedBox(
-            //                     height: 35,
-            //                     width: 35,
-            //                     child: Image.asset(
-            //                       Pictures.menu,
-            //                       fit: BoxFit.scaleDown,
-            //                     ),
-            //                   ),
-            //                 ),
-            //               ),
-            //             ),
-            //           ),
-            //         ),
-            //         Padding(
-            //           padding: const EdgeInsets.only(right: 15),
-            //           child: Align(
-            //             alignment: Alignment.centerRight,
-            //             child: Column(
-            //               children: [
-            //                 for (int i = 0; i < 3; i++)
-            //                   SvgPicture.asset(currentHeart > i
-            //                       ? Svgs.heartFill
-            //                       : Svgs.heartEmpty),
-            //               ],
-            //             ),
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //     if (time == 0)
-            //       Padding(
-            //         padding: const EdgeInsets.only(bottom: 40),
-            //         child: Padding(
-            //           padding: const EdgeInsets.symmetric(horizontal: 100),
-            //           child: BlurContainer(
-            //             content: Row(
-            //               children: [
-            //                 SvgPicture.asset(
-            //                   Svgs.score,
-            //                 ),
-            //                 const SizedBox(width: 3),
-            //                 Text(
-            //                   currentScore.toString(),
-            //                   style: AppTextStyle.w700S32WhiteColor,
-            //                 ),
-            //               ],
-            //             ),
-            //           ),
-            //         ),
-            //       ),
-            //   ],
-            // ),
           ],
         ),
       ),
-    );
-
-    Stack(
-      fit: StackFit.expand,
-      children: [
-        Image.asset(
-          "assets/pictures/back_$back.png",
-          fit: BoxFit.fill,
-        ),
-        Column(
-          children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 23, top: 48),
-                child: GestureDetector(
-                  onTap: () => Navigator.of(context).pop(),
-                  child: SizedBox(
-                    width: 64,
-                    height: 64,
-                    child: BlurContainer(
-                      content: SizedBox(
-                        height: 35,
-                        width: 35,
-                        child: Image.asset(
-                          Pictures.menu,
-                          fit: BoxFit.scaleDown,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
     );
   }
 }
