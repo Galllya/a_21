@@ -1,0 +1,67 @@
+name: a1
+description: A new Flutter project.
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.3
+  bloc: ^8.1.2
+  flutter_bloc: ^8.0.1
+  shared_preferences: ^2.2.2
+  flutter_svg: ^2.0.7
+  flutter_rounded_progress_bar: ^0.3.2
+  gradient_widgets: ^0.6.0
+  inner_shadow_widget: ^0.0.3
+  flutter_inset_box_shadow: ^1.0.8
+  flame_audio: ^2.1.7
+  webview_flutter: ^4.4.4
+  share_plus: ^7.2.1
+  flame: ^1.14.0
+  in_app_review: ^2.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  freezed: ^2.0.3+1
+  build_runner: ^2.1.11
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/pictures/
+    - assets/icons/
+    - assets/audio/
+    - assets/images/
+  fonts:
+    - family: Jost
+      fonts:
+        - asset: fonts/Jost-Black.ttf
+        - asset: fonts/Jost-BlackItalic.ttf
+        - asset: fonts/Jost-Bold.ttf
+        - asset: fonts/Jost-BoldItalic.ttf
+        - asset: fonts/Jost-ExtraBold.ttf
+        - asset: fonts/Jost-ExtraBoldItalic.ttf
+        - asset: fonts/Jost-ExtraLight.ttf
+        - asset: fonts/Jost-ExtraLightItalic.ttf
+        - asset: fonts/Jost-Italic.ttf
+        - asset: fonts/Jost-Light.ttf
+        - asset: fonts/Jost-LightItalic.ttf
+        - asset: fonts/Jost-MediumItalic.ttf
+        - asset: fonts/Jost-Regular.ttf
+        - asset: fonts/Jost-SemiBold.ttf
+        - asset: fonts/Jost-SemiBoldItalic.ttf
+        - asset: fonts/Jost-Thin.ttf
+        - asset: fonts/Jost-ThinItalic.ttf
+
+
+
+
+
+
